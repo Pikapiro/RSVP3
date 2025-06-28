@@ -48,7 +48,7 @@ const Hero = () => {
              אשר הגעה 
             </a>
            <button onClick={() => window.location.href = "/rsvp"} className="flex flex-col sm:flex-row gap-4 justify-center">
-  RSVP
+  RSVPל
 </button>
           </div>
         </div>

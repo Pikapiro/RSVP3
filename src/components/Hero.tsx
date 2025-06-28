@@ -47,7 +47,7 @@ const Hero = () => {
             >
              אשר הגעה 
             </a>
-            <Link  href="/rsvp">
+            <Link  to="/rsvp">
   
     <p
          

@@ -206,99 +206,10 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
       </div>
 
       {/* Email Integration Instructions */}
-      <div className="py-16 bg-pale-yellow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-serif text-black mb-6">
-              Email Integration Instructions
-            </h2>
-            <div className="bg-white rounded-lg p-6 shadow-md text-left border border-pale-yellow">
-              <p className="text-black mb-4">
-                To connect this RSVP form to your email, you'll need to:
-              </p>
-              
-              <ol className="space-y-3 text-black list-decimal pl-5">
-                <li>Set up an email service provider (like EmailJS, SendGrid, or Formspree)</li>
-                <li>Get your API keys from the email service</li>
-                <li>Update the <code className="bg-pale-yellow px-1 py-0.5 rounded text-black">handleSubmit</code> function in the RSVP.tsx file to send form data to your email</li>
-              </ol>
-              
-              <div className="mt-6 p-4 bg-white rounded border border-pale-yellow">
-                <p className="font-medium mb-2 text-black">Example code for email integration:</p>
-                <pre className="text-xs overflow-auto p-2 bg-pale-yellow rounded text-black">
-{`// Example using EmailJS
-const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  // CUSTOMIZE: Replace with your EmailJS details
-  emailjs.send(
-    'YOUR_SERVICE_ID', 
-    'YOUR_TEMPLATE_ID',
-    {
-      to_email: 'your-email@example.com',
-      from_name: formData.name,
-      from_email: formData.email,
-      message: \`
-        Attendance: \${formData.attendance}
-        Guests: \${formData.guests}
-        Guest Names: \${formData.guestNames}
-        Dinner Choice: \${formData.dinnerChoice}
-        Guest Dinner Choices: \${formData.guestDinnerChoices}
-        Dietary Restrictions: \${formData.dietaryRestrictions}
-        Message: \${formData.message}
-      \`
-    }, 
-    'YOUR_USER_ID'
-  )
-  .then(() => {
-    toast({
-      title: "RSVP Submitted Successfully!",
-      description: "Thank you for your response. We can't wait to celebrate with you!",
-    });
-    // Reset form fields
-  })
-  .catch((error) => {
-    console.error('Error sending RSVP:', error);
-    toast({
-      title: "Error Submitting RSVP",
-      description: "There was a problem submitting your RSVP. Please try again.",
-      variant: "destructive",
-    });
-  });
-};`}
-                </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Important Information */}
-      <div className="py-16 bg-pale-yellow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-serif text-black mb-6">
-              Important Information
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-              <div className="bg-white rounded-lg p-6 shadow-md border border-pale-yellow">
-                <h3 className="text-lg font-semibold text-black mb-3">RSVP Deadline</h3>
-                <p className="text-black">
-                  {/* CUSTOMIZE: Replace with your RSVP deadline */}
-                  {/* Example: Please respond by May 15, 2026 so we can finalize our headcount with the caterer and venue. */}
-                </p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-md border border-pale-yellow">
-                <h3 className="text-lg font-semibold text-black mb-3">Questions?</h3>
-                <p className="text-black">
-                  {/* CUSTOMIZE: Replace with your contact information */}
-                  {/* Example: If you have any questions about the wedding or need to make changes to your RSVP, please contact us at couple@example.com. */}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
     </div>
   );
 };

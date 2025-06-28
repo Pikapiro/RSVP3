@@ -26,19 +26,21 @@ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
   try {
-const form = new FormData();
-Object.entries(formData).forEach(([key, value]) => {
-  form.append(key, value);
-});
+    const form = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      form.append(key, value);
+    });
 
-await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8SmHC-C3jFnHZwtQnZIctxY016snQW_A0RnFioL5C0EdA/exec", {
-  method: "POST",
-  body: form
-});
- toast({
-  title: "הטופס נשלח בהצלחה!",
-  description: "תודה שאישרתם הגעה 🙏",
-});
+    await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8SmHC-C3jFnHZwtQnZIctxY016snQW_A0RnFioL5C0EdA/exec", {
+      method: "POST",
+      body: form,
+    });
+
+    toast({
+      title: "הטופס נשלח בהצלחה!",
+      description: "תודה שאישרתם הגעה 🙏",
+    });
+
     setFormData({
       name: '',
       email: '',
@@ -46,16 +48,19 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
       attendance: '',
       guests: '1',
       guestNames: '',
-   
-
-
       message: '',
     });
+
   } catch (error) {
     console.error("Error submitting RSVP:", error);
-
+    toast({
+      title: "אירעה שגיאה בשליחה",
+      description: "אנא נסו שוב מאוחר יותר.",
+      variant: "destructive",
+    });
   }
 };
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

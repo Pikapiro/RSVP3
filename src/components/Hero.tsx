@@ -47,10 +47,10 @@ const Hero = () => {
             >
              אשר הגעה 
             </a>
-            <Link href="/rsvp">
+            <Link  href="/rsvp">
   
     <p
-             href="/rsvp"
+         
               className="bg-pale-yellow hover:bg-white text-black px-8 py-3 rounded-full font-medium transition-colors duration-200 hover:scale-105 transform"
             >
              אשר הגעה 

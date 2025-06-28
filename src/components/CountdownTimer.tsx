@@ -1,0 +1,54 @@
+
+import React, { useState, useEffect } from 'react';
+
+const CountdownTimer = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    // CUSTOMIZE: Replace with your wedding date and time in format 'YYYY-MM-DDTHH:MM:SS'
+    const weddingDate = new Date('2025-07-24T18:00:00').getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="bg-pale-yellow py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-serif text-black mb-8">
+          {/* CUSTOMIZE: Replace with your countdown heading */}
+        ספירה ליום הגדול שלנו!
+        </h2>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+          {Object.entries(timeLeft).map(([unit, value]) => (
+            <div key={unit} className="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition-transform duration-200 border border-pale-yellow">
+              <div className="text-3xl md:text-4xl font-bold text-black mb-2">{value}</div>
+              <div className="text-black font-medium capitalize">{unit}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CountdownTimer;

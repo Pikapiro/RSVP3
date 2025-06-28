@@ -10,7 +10,7 @@ const Navbar = () => {
   const navItems = [
     { name: '  עמוד הבית  '   , path: '/' },
   
-    { name: 'פרטי חתונה', path: '/details' },
+    // { name: 'פרטי חתונה', path: '/details' },
 
   
     { name: 'אישור הגעה', path: '/rsvp' },

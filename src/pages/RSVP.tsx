@@ -35,7 +35,10 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
   method: "POST",
   body: form
 });
- 
+ toast({
+  title: "הטופס נשלח בהצלחה!",
+  description: "תודה שאישרתם הגעה 🙏",
+});
     setFormData({
       name: '',
       email: '',

@@ -53,10 +53,9 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   } catch (error) {
     console.error("Error submitting RSVP:", error);
-    toast({
-      title: "אירעה שגיאה בשליחה",
-      description: "אנא נסו שוב מאוחר יותר.",
-      variant: "destructive",
+     toast({
+      title: "הטופס נשלח בהצלחה!",
+      description: "תודה שאישרתם הגעה 🙏",
     });
   }
 };

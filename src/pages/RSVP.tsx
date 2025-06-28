@@ -196,6 +196,7 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
               {/* Submit Button */}
               <div className="pt-6">
                 <Button 
+                
                   type="submit" 
                   className="w-full bg-pale-yellow hover:bg-white hover:border-pale-yellow border border-pale-yellow text-black py-3 text-lg font-medium"
                   disabled={!formData.name || !formData.email || !formData.attendance}

@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import CountdownTimer from '../components/CountdownTimer';
 import QuickDetails from '../components/QuickDetails';
-
+import { Link, useLocation } from 'react-router-dom';
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">

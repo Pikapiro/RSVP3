@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Calendar, MapPin } from 'lucide-react';
-
+import { Link, useLocation } from 'react-router-dom';
 const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -47,9 +47,16 @@ const Hero = () => {
             >
              אשר הגעה 
             </a>
-           <button onClick={() => window.location.href = "/rsvp"} className="flex flex-col sm:flex-row gap-4 justify-center">
-  RSVPל
-</button>
+            <Link href="/rsvp">
+  
+    <p
+             href="/rsvp"
+              className="bg-pale-yellow hover:bg-white text-black px-8 py-3 rounded-full font-medium transition-colors duration-200 hover:scale-105 transform"
+            >
+             אשר הגעה 
+            </p>
+</Link>
+   
           </div>
         </div>
       </div>

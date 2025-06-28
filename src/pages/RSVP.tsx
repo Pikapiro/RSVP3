@@ -35,11 +35,7 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
   method: "POST",
   body: form
 });
-    toast({
-      title: "RSVP נשלח בהצלחה!",
-      description: "התשובה שלך נשמרה בגוגל שיט 🙌",
-    });
-
+ 
     setFormData({
       name: '',
       email: '',
@@ -54,11 +50,7 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
     });
   } catch (error) {
     console.error("Error submitting RSVP:", error);
-    toast({
-      title: "שגיאה בשליחה",
-      description: "לא הצלחנו לשלוח את התשובה. נסה שוב.",
-      variant: "destructive",
-    });
+
   }
 };
 
@@ -92,7 +84,7 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
               {/* Name */}
               <div>
                 <Label htmlFor="name" className="text-base font-medium text-gray-700">
-                 שם *
+                  שם מלא *
                 </Label>
                 <Input
                   id="name"
@@ -136,7 +128,7 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
               {/* Attendance */}
               <div>
                 <Label className="text-base font-medium text-gray-700 mb-3 block">
-                 מאשר הגעה *
+                 מאשר/ת הגעה *
                 </Label>
                 <RadioGroup
                   value={formData.attendance}
@@ -144,22 +136,22 @@ await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8Sm
                   className="space-y-2"
                 >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="yes" />
-                    <Label htmlFor="yes">בטח ניתראה שם</Label>
+                    <RadioGroupItem value="מגיע" id="yes" />
+                    <Label htmlFor="yes">בטח נתראה שם</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="no" id="no" />
-                    <Label htmlFor="no">מצטער לא יכול להגיע</Label>
+                    <Label htmlFor="לא מגיע">מצטער לא יכול/ה להגיע</Label>
                   </div>
                 </RadioGroup>
               </div>
 
               {/* Number of Guests */}
-              {formData.attendance === 'yes' && (
+              {formData.attendance === 'מגיע' && (
                 <>
                   <div>
                     <Label htmlFor="guests" className="text-base font-medium text-gray-700">
-                  האם אתה בא עם אנשים?
+                  אנא ציין כמה אנשים יגיעו (כולל אותך)
 
                     </Label>
                     <select

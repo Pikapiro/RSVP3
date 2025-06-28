@@ -13,10 +13,7 @@ const Details = () => {
           <h1 className="text-4xl md:text-6xl font-serif text-black mb-6">
             Wedding Details
           </h1>
-          <p className="text-xl text-black max-w-2xl mx-auto leading-relaxed">
-            {/* CUSTOMIZE: Replace with your wedding details introduction */}
-            We're excited to share all the details you need for our special day. Please read through the information below to help plan your attendance.
-          </p>
+        
         </div>
       </div>
 
@@ -27,10 +24,7 @@ const Details = () => {
             <h2 className="text-3xl md:text-4xl font-serif text-black mb-4">
               Wedding Day Schedule
             </h2>
-            <p className="text-lg text-black max-w-2xl mx-auto">
-              {/* CUSTOMIZE: Add a brief intro about your schedule */}
-              Here is a rough time frame of what to expect on the day of our wedding.
-            </p>
+       
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -47,7 +41,7 @@ const Details = () => {
                     <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
                       <h3 className="text-xl font-semibold text-black mb-2">
                         {/* CUSTOMIZE: Event name */}
-                        קבל פנים
+                        קבלת פנים
                       </h3>
                       <div className="flex items-center justify-end gap-2 mb-3 text-black">
                         <Calendar className="w-4 h-4" />

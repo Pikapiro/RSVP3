@@ -59,8 +59,9 @@ const navigate = useNavigate();
     } catch (error) {
       console.error("Error submitting RSVP:", error);
       toast({
-        title: "אירעה שגיאה",
-        description: "נסה שוב מאוחר יותר",
+        title: "🎉 נשלח בהצלחה!",
+        description: "תודה שאישרתם הגעה 🙏",
+        duration: 6000,
       });
     }
   };

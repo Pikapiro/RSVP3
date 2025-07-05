@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -10,10 +9,10 @@ import { useToast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useRouter } from 'next/router';
 
-
 const RSVP = () => {
   const { toast } = useToast();
-  const router = useRouter();
+  const router = useRouter(); // העברתי לכאן
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,49 +20,52 @@ const RSVP = () => {
     attendance: '',
     guests: '1',
     guestNames: '',
-   
     message: '',
   });
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  try {
-    const form = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      form.append(key, value);
-    });
+    try {
+      const form = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        form.append(key, value);
+      });
 
-    await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8SmHC-C3jFnHZwtQnZIctxY016snQW_A0RnFioL5C0EdA/exec", {
-      method: "POST",
-      body: form,
-    });
+      await fetch("https://script.google.com/macros/s/AKfycbzyZdgh3fHJ9m5vGfNJHU3sq8SmHC-C3jFnHZwtQnZIctxY016snQW_A0RnFioL5C0EdA/exec", {
+        method: "POST",
+        body: form,
+      });
 
-    toast({
-      title: "הטופס נשלח בהצלחה!",
-      description: "תודה שאישרתם הגעה 🙏",
-    });
-    router.push('/');
+      toast({
+        title: "🎉 נשלח בהצלחה!",
+        description: "תודה שאישרתם הגעה 🙏",
+        duration: 6000,
+      });
 
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      attendance: '',
-      guests: '1',
-      guestNames: '',
-      message: '',
-    });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        attendance: '',
+        guests: '1',
+        guestNames: '',
+        message: '',
+      });
 
-  } catch (error) {
-    console.error("Error submitting RSVP:", error);
-     toast({
-      title: "הטופס נשלח בהצלחה!",
-      description: "תודה שאישרתם הגעה 🙏",
-    });
-  }
-};
+      // ממתין 2 שניות כדי שה-toast יוצג ואז עובר לעמוד הבית
+      setTimeout(() => {
+        router.push('/');
+      }, 2000);
 
+    } catch (error) {
+      console.error("Error submitting RSVP:", error);
+      toast({
+        title: "אירעה שגיאה",
+        description: "נסה שוב מאוחר יותר",
+      });
+    }
+  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

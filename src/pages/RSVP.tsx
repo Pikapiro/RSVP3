@@ -7,11 +7,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useToast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 const RSVP = () => {
   const { toast } = useToast();
-  const router = useRouter(); // העברתי לכאן
+const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -53,11 +53,9 @@ const RSVP = () => {
         message: '',
       });
 
-      // ממתין 2 שניות כדי שה-toast יוצג ואז עובר לעמוד הבית
-      setTimeout(() => {
-        router.push('/');
-      }, 2000);
-
+    setTimeout(() => {
+  navigate('/');
+}, 2000);
     } catch (error) {
       console.error("Error submitting RSVP:", error);
       toast({

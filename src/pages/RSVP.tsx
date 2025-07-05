@@ -7,7 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useToast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';import
+ { Link, useLocation } from 'react-router-dom';
 
 const RSVP = () => {
   const { toast } = useToast();
@@ -54,7 +55,9 @@ const navigate = useNavigate();
       });
 
     setTimeout(() => {
-  navigate('/');
+        <Link  to="/rsvp">
+ 
+</Link>
 }, 2000);
     } catch (error) {
       console.error("Error submitting RSVP:", error);

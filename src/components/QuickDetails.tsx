@@ -13,7 +13,7 @@ const QuickDetails = () => {
     {
       icon: Clock,
       title: 'Ceremony Time',
-      info: '18:00', 
+      info: '18:30', 
     },
     {
       icon: MapPin,

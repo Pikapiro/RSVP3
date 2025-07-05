@@ -8,9 +8,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useToast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useRouter } from 'next/router';
+
 
 const RSVP = () => {
   const { toast } = useToast();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,6 +43,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       title: "הטופס נשלח בהצלחה!",
       description: "תודה שאישרתם הגעה 🙏",
     });
+    router.push('/');
 
     setFormData({
       name: '',
